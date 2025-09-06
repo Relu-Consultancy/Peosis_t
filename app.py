@@ -24,11 +24,11 @@ except Exception as e:
 def preview_dataset(n=5):
     """Utility function to provide dataset rows(not used in API)"""
     try:
-        logging.info("Previewing dataset")
+        logging.info("first 5 rows of dataset")
         return df.head(n)
     except Exception as e:
         logging.error(f"Error previewing dataset: {e}")
-        return []
+        return None
 
 def get_filtered_data():
     """Fetch and return filtered data based on category."""
@@ -88,7 +88,7 @@ def locations():
 if __name__ == "__main__":
     try:
         app.run(host="0.0.0.0", debug=True, port=5011)
-        #load dataset with error handling
-        logging.info("Flask server is up and running")
+        #load dataset with error handling and preview dataset
+        logging.info("Flask server working successfully")
     except Exception as e:
         logging.error(f"Error starting Flask server: {e}")
